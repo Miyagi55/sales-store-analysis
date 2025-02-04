@@ -1,4 +1,4 @@
-# 📊 Sales Data Analysis for a Large Store Chain
+# Sales Data Analysis for a Store Chain
 
 ## 🎯 Project Overview
 
@@ -107,43 +107,42 @@ uv tree
 uv python main.py
 ```
 
-## 🖼️ Example Screenshot of the Process
+## 🖼️ Example Screenshot of the local development environment
 
 ![Process Screenshot](images/vscode.jpg)
 
 ### Results
 - A **summary Excel file** (`monthly_sales_summary_2024.xlsx`) containing:
-  - **Monthly average sales**.
-  - **Individual store sales per month**.
-  - **Auto-adjusted column formatting**.
-  - **Peak sales recognition**.
+  ✔️ **Monthly average sales**.
+  ✔️ **Individual store sales per month**.
+  ✔️ **Peak sales recognition**.
 
 ---
 
 ## Insights & Findings
 
 - 📈 The analysis helps the client **identify peak sales months** and **underperforming stores**.
-- 📊 **Seasonal trends** can be visualized through the graphs.
+- 📉 **Seasonal trends** can be visualized through the graphs, putting April like the higest one where all the stores have their peak.
 - 🎯 **Business strategies** can be adjusted based on high and low performers.
 
 
-## 📊 Generated Charts
+## 🖨️ Generated Charts
 
 ### 1. **Monthly Sales Trend**
 ![Monthly Sales Trend](images/all_stores_average_2024.jpg)
 
 ### 2. **Top and Bottom Stores Comparison**
-![Stores Comparison](images/mas_alto.jpg)
-![Stores Comparison](images/mas_bajo.jpg)
+![Stores Comparison](images/mas_altos.jpg)
+![Stores Comparison](images/mas_bajos_2024.jpg)
 
 ### 3. **Sales Distribution Across Stores**
 ![Sales Distribution](images/comparacion_promedios_global.jpg)
 
 ### 4. **Others**
-*Best two stores*
+**Best two stores**
 ![Best two stores](images/segundo_mejor_par.jpg)
 
-*Best four stores*
+**Best four stores**
 ![Best four stores](images/top_cuatro.jpg)
 
 
