@@ -113,9 +113,9 @@ uv python main.py
 
 ### Results
 - A **summary Excel file** (`monthly_sales_summary_2024.xlsx`) containing:
-  ✔️ **Monthly average sales**.
-  ✔️ **Individual store sales per month**.
-  ✔️ **Peak sales recognition**.
+  - ✔️ **Monthly average sales**.
+  - ✔️ **Individual store sales per month**.
+  - ✔️ **Peak sales recognition**.
 
 ---
 
