@@ -1,58 +1,63 @@
-# Sales Data Analysis for a Large Store Chain
+# 📊 Sales Data Analysis for a Large Store Chain
 
-## Project Overview
+## 🎯 Project Overview
 
 This project performs a **year-long sales analysis** for a store chain operating in **11 different locations** within a specific region. The analysis processes sales data spread across multiple Excel files, each containing multiple sheets, to extract key insights:
 
-1. **Monthly Sales Average** for all stores.
-2. **Identification of the two highest** and **two lowest performing stores** per month.
-3. **Visualization of sales trends** via tables and graphs.
-4. **Detection of peak sales periods** to understand seasonality.
-5. **Compilation of results into a new summarized Excel file**.
+1. 📈 **Monthly Sales Average** for all stores.
+2. 🏆 **Identification of the two highest** and **two lowest performing stores** per month.
+3. 📉 **Visualization of sales trends** via tables and graphs.
+4. 📅 **Detection of peak sales periods** to understand seasonality.
+5. 📗 **Compilation of results into a new summarized Excel file**.
 
 ---
 
-## Methods Used
+## 🛠️ Methods Used
 
 ### 1. **Data Extraction & Processing**
 
-- **Multiple Excel files** (`.xlsx`) are loaded, with each file corresponding to a specific month.
-- Each file contains sheets representing **different store locations**.
-- Sales data is extracted from each sheet, **skipping header rows and selecting the relevant column**.
-- The extracted data is summed to compute total sales per store.
+- 📑 **Multiple Excel files** (`.xlsx`) are loaded, with each file corresponding to a specific month.
+- 📋 Each file contains sheets representing **different store locations**.
+- 🔍 Sales data is extracted from each sheet, **skipping header rows and selecting the relevant column** using as parameters within `read_excel` pandas method:
+  -  `openpyxl` engine
+  -  `sheetname` to refer the sheet within the xlxs file
+  -  `skiprows` and `use_cols` to skip rows and select the column
+- 🧮 The extracted data is summed to compute total sales per store.
 
 ### 2. **Parallel Processing**
 
-- The script utilizes **ThreadPoolExecutor** to accelerate reading multiple sheets simultaneously.
-- The `functools.partial` function helps **parallelize Excel reading tasks**.
+- ⚡ The script utilizes **ThreadPoolExecutor** to accelerate reading multiple sheets simultaneously.
+- 🔄 The `functools.partial` function helps **parallelize Excel reading tasks**.
+
 
 ### 3. **Statistical Analysis**
 
-- **Average monthly sales** across all stores are calculated.
-- Each month’s **highest and lowest performing stores** are identified.
+- 📊 **Average monthly sales** across all stores are calculated.
+- 📈 Each month's **highest and lowest performing stores** are identified.
+- 
 
 ### 4. **Data Storage & Output**
 
-- A **new Excel file** (`monthly_sales_summary_2024.xlsx`) is created.
-- It contains **two sheets**:
+- 📁 A **new Excel file** (`monthly_sales_summary_2024.xlsx`) is created.
+- 📑 It contains **two sheets**:
   - **Monthly Averages** – A summary of sales averages.
   - **Store Details** – Monthly sales per store, organized in a tabular format.
-- Auto-adjusts column widths for better readability.
+- ✨ Auto-adjusts column widths for better readability.
 
 ---
 
-## Modules Used
+## 📚 Modules Used
 
-| Module                                  | Purpose                                           |
-| --------------------------------------- | ------------------------------------------------- |
-| `pandas`                                | Data manipulation and Excel reading/writing       |
+| Module | Purpose |
+|--------|----------|
+| `pandas` | Data manipulation and Excel reading/writing |
 | `concurrent.futures.ThreadPoolExecutor` | Parallel processing for faster Excel file reading |
-| `functools.partial`                     | Simplifies function calls in parallel execution   |
-| `os`                                    | Manages file paths dynamically                    |
+| `functools.partial` | Simplifies function calls in parallel execution |
+| `os` | Manages file paths dynamically |
 
 ---
 
-## File Structure
+## 📂 File Structure
 
 ```
 📂 Project Root
@@ -67,87 +72,94 @@ This project performs a **year-long sales analysis** for a store chain operating
 
 ---
 
-## Dependencies
+## 📦 Dependencies
 
-### Packages That Need to Be Installed Directly
+### Packages That Need to Be Installed
 
-These are standalone libraries that you need to install explicitly:
+Using the uv package manager for faster and more reliable installation:
 
-- `colorama` – Handles colored text in the terminal.
-- `numpy` – A fundamental package for numerical computing.
-- `openpyxl` – Reads/writes Excel files (XLSX format).
-- `pandas` – Data analysis and manipulation tool.
-- `tqdm` – Provides progress bars in loops and terminal output.
-- `xlsxwriter` – Writes Excel files (alternative to openpyxl).
+```bash
+# Install uv if you haven't already
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
----
-
-## Example Screenshot of the Process
-
-
+# Create a new virtual environment and install dependencies
+uv venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+uv pip install colorama numpy openpyxl pandas tqdm xlsxwriter
+```
 
 ---
 
-## Generated Charts
-
-### 1. **Monthly Sales Trend**
-
-
-
-### 2. **Top and Bottom Stores Comparison**
-
-
-
-### 3. **Sales Distribution Across Stores**
-
-
-
----
-
-## How to Run the Analysis
+## 🚀 How to Run the Analysis
 
 ### Prerequisites
 
-Ensure you have Python installed along with the required dependencies:
+Ensure you have Python installed, uv package manager set up with all dependencies:
 
 ```bash
-pip install pandas openpyxl
+# Check all installed dependencies using uv tree
+uv tree 
 ```
 
 ### Running the Script
 
 ```bash
-python sales_analysis.py
+uv python main.py
 ```
 
-### Expected Output
+## 🖼️ Example Screenshot of the Process
 
+![Process Screenshot](images/vscode.jpg)
+
+### Results
 - A **summary Excel file** (`monthly_sales_summary_2024.xlsx`) containing:
   - **Monthly average sales**.
   - **Individual store sales per month**.
   - **Auto-adjusted column formatting**.
+  - **Peak sales recognition**.
 
 ---
 
 ## Insights & Findings
 
-- The analysis helps the client **identify peak sales months** and **underperforming stores**.
-- **Seasonal trends** can be visualized through the graphs.
-- **Business strategies** can be adjusted based on high and low performers.
+- 📈 The analysis helps the client **identify peak sales months** and **underperforming stores**.
+- 📊 **Seasonal trends** can be visualized through the graphs.
+- 🎯 **Business strategies** can be adjusted based on high and low performers.
+
+
+## 📊 Generated Charts
+
+### 1. **Monthly Sales Trend**
+![Monthly Sales Trend](images/all_stores_average_2024.jpg)
+
+### 2. **Top and Bottom Stores Comparison**
+![Stores Comparison](images/mas_alto.jpg)
+![Stores Comparison](images/mas_bajo.jpg)
+
+### 3. **Sales Distribution Across Stores**
+![Sales Distribution](images/comparacion_promedios_global.jpg)
+
+### 4. **Others**
+*Best two stores*
+![Best two stores](images/segundo_mejor_par.jpg)
+
+*Best four stores*
+![Best four stores](images/top_cuatro.jpg)
+
 
 ---
 
-## Future Improvements
+---
 
-- Automate **data collection from multiple years**.
-- Implement **interactive dashboards** for real-time sales monitoring.
-- Expand the analysis with **predictive models** for future sales forecasting.
+##  Future Improvements
+
+- 🤖 Automate **data collection from multiple years**.
+- 📱 Implement **interactive dashboards** for real-time sales monitoring.
+- 🧠 Expand the analysis with **predictive models** for future sales forecasting.
 
 ---
 
-## Author
+## ✍️ Author
 
 DavidF
-
-A basic data analysis about a few client requirements about regional and average sales.
 
